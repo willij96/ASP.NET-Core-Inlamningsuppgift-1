@@ -1,0 +1,62 @@
+﻿@using FreakyFashion1.Models
+@model List<Product>
+
+<h4 style="text-align:center; margin-top: 40px;">Populära produkter</h4>
+
+
+
+
+<div class="row">
+    @foreach (var product in Model.Take(8))
+    {
+        <div class="col-md-3 mb-3 d-flex align-items-stretch">
+            <div class="card">
+                <div class="view">
+                    <a asp-page="/Product" asp-route-urlSlug="@product.UrlSlug">
+                        <img src="@product.ImageUrl" class="card-img-top"
+                             alt="">
+                    </a>
+                    <div class="mask rgba-white-slight"></div>
+                </div>
+                <div class="card-body">
+                    <p class="card-title text-center">@product.Name<p>
+                    <p class="card-title text-center">@product.Price<p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+    @*<div class="card-deck">
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+    </div>
+
+    <div class="card-deck">
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:300px; line-height:150px;">
+            <img class="card-img" src="..." alt="Card image">
+        </div>
+    </div>*@
+

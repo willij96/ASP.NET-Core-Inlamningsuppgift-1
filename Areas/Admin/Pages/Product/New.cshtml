@@ -1,0 +1,67 @@
+﻿@page
+@model FreakyFashion1.Areas.Admin.Pages.Product.NewModel
+@{
+}
+
+<h1>Administration</h1>
+<h6>Ny produkt</h6>
+    <form method="post">
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Namn</label>
+                    <input asp-for="ViewModel.Name" class="form-control">
+                    <span asp-validation-for="ViewModel.Name"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Artikelnummer</label>
+                    <input asp-for="ViewModel.ArticleNumber" class="form-control">
+                    <span asp-validation-for="ViewModel.ArticleNumber"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label>Beskrivning</label>
+                    <textarea asp-for="ViewModel.Description" class="form-control" rows="4"></textarea>
+                    <span asp-validation-for="ViewModel.Description"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Kategori</label>
+                    <select asp-for="CategoryViewModel.CategoryId"
+                            asp-items="Model.CategoryViewModel.CategoryList" class="form-control"></select>
+                    <span asp-validation-for="CategoryViewModel.CategoryId"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <div class="form-group">
+                    <label>Pris</label>
+                    <input asp-for="ViewModel.Price" class="form-control">
+                    <span asp-validation-for="ViewModel.Price"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="form-group">
+                    <label>Bild</label>
+                    <input asp-for="ViewModel.ImageUrl" class="form-control">
+                    <span asp-validation-for="ViewModel.ImageUrl"></span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Lägg till
+        </button>
+    </form>

@@ -1,0 +1,51 @@
+﻿@page
+@model FreakyFashion1.Areas.Admin.Pages.Product.IndexModel
+@{
+}
+
+<div class="row">
+    <div class="col">
+        <a href="/admin/product/new" class="btn btn-primary float-right">Ny produkt</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Art.nr</th>
+                    <th>Produkt</th>
+                    <th>Kategorier</th>
+                    <th>Pris</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model.Products)
+                {
+                <tr>
+                    <td>@product.ArticleNumber</td>
+                    <td>@product.Name</td>
+                    <td>
+                        @foreach (var category in product.ProductCategories)
+                        {
+                           
+                           
+                                @category.Category.Name
+                            
+                        }
+                    </td>
+                        <td>@product.Price</td>
+                        <td>
+                            <a asp-area="Admin" asp-page="/Product/Delete" asp-route-id="@product.Id" class="btn btn-danger">
+                                Delete
+                            </a>
+                            <a asp-area="Admin" asp-page="/Product/Edit" asp-route-id="@product.Id" class="btn btn-info">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

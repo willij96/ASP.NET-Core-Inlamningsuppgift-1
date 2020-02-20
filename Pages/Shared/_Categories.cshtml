@@ -1,0 +1,25 @@
+﻿@using FreakyFashion1.Models
+@model List<Category>
+
+    <div class="card-deck">
+        @for (int i = 0; i < 3; i++)
+        {
+        <div class="card bg-light col mt-4" style="max-width: 31rem; height:200px; line-height:150px;">
+            <a id="category-btn" asp-page="/Category" asp-route-name="@Model[i].Name">
+                <div class="card-body">
+
+                    <p class="card-title text-center">@Model[i].Name<p>
+
+                </div>
+            </a>
+        </div>
+        }
+    </div>
+
+
+
+    
+
+    
+
+

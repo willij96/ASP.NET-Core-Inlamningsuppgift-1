@@ -6,26 +6,56 @@
     <title>@ViewData["Title"] - FreakyFashion1</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">FreakyFashion1</a>
+                <a class="navbar-brand" asp-page="/Index">
+                    <img class="logo" src="~/images/logo.jpg" alt="Logotyp" style="height: 130px;"/>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
+                    @*<ul class="navbar-brand nav">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a><i class="fa fa-meh-o" aria-hidden="true" id=""></i></a>
+                            <a><i class="fa fa-shopping-cart"></i></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                    </ul>*@
+
+                    
+
+                <ul class="navbar-nav flex-grow-1">
+                    <li>
+                        <form class="form-inline" asp-page="/Search" method="get">
+                            <p>
+                                Title: <input class="form-control mr-sm-2" name="q" type="search" />
+
+                            </p>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Hem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Rea</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-page="/Category" asp-route-name="T-shirt">T-shirt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-page="/Category" asp-route-name="Klänning">Klänningar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-page="/Category" asp-route-name="Byxor">Byxor</a>
+                    </li>
+
+                </ul>
                 </div>
             </div>
         </nav>
@@ -36,9 +66,21 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - FreakyFashion1 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <footer class="border-top footer text-muted" style="position: inherit">
+        <div class="container d-flex">
+            
+            <div style="padding: inherit; flex-grow: 1">
+                <ul class="list-unstyled"><li><p> <i class='fa fa-globe' style='font-size:26px'></i> Gratis frakt & returer</p></li></ul> &copy; 2020 - FreakyFashion
+            </div>
+            <div style="padding: inherit; flex-grow: 1">
+                <ul class="list-unstyled"><li><p><i class="fa fa-fighter-jet" style="font-size:26px;"></i>Expressfrakt</p></li></ul>
+            </div>
+            <div style="padding: inherit; flex-grow: 1">
+                <ul class="list-unstyled"><li><p><i class="fa fa-shield" style="font-size:26px"></i>Säkra betalningar</p></li></ul>
+            </div>
+            <div style="padding: inherit; flex-grow: 1">
+                <ul class="list-unstyled"><li><p><i class="fa fa-smile-o" style="font-size:26px"></i>Nyheter varje dag</p></li></ul>
+            </div>
         </div>
     </footer>
 

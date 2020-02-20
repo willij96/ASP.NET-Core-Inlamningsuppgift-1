@@ -6,31 +6,30 @@ using FreakyFashion1.Data;
 using FreakyFashion1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace FreakyFashion1.Pages
+namespace FreakyFashion1
 {
-    public class IndexModel : PageModel
+    public class ProductModel : PageModel
     {
-        private readonly ILogger<IndexModel> logger;
+        private readonly ILogger<ProductModel> logger;
         private readonly ApplicationDbContext context;
 
         public IList<Product> ProductList = new List<Product>();
-        public IList<Category> CategoryList = new List<Category>();
 
-        public IndexModel(ApplicationDbContext context, ILogger<IndexModel> logger)
+        public Product Product { get; set; }
+
+        public ProductModel(ApplicationDbContext context, ILogger<ProductModel> logger)
         {
             this.logger = logger;
             this.context = context;
         }
 
-        public void OnGet()
+        public void OnGet(string urlSlug)
         {
-            ProductList = context.Product
-                .ToList();
+            Product = context.Product.FirstOrDefault(x => x.UrlSlug == urlSlug);
 
-            CategoryList = context.Category
+            ProductList = context.Product
                 .ToList();
         }
     }

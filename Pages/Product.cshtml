@@ -1,0 +1,51 @@
+﻿@page
+
+@model ProductModel
+@{
+    ViewData["Title"] = "Product";
+}
+
+    <div id="carouselExampleSlidesOnly" class="" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="@Model.Product.ImageUrl" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="col-6">
+                        <h2>@Model.Product.Name</h2>
+                        <p>@Model.Product.ArticleNumber</p>
+                        <p>@Model.Product.Description</p>
+                        <p>@Model.Product.Price</p>
+                        <a class="btn btn-light">
+                            Köp
+                        </a>
+                    </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+
+    @*<partial name="_RecommendedProducts" model="Model.ProductList" />*@
+<vc:recommended-product products="Model.ProductList"></vc:recommended-product>
+
+
+    @*<div class="carousel-item @(IsFirstSlide(product) ? "active" : "")">
+        <div class="row">
+            <div class="col">
+                <h2>@product.Name</h2>
+                <p>@product.ArticleNumber</p>
+                <p>@product.Price</p>
+                <a href=$"/product/{@product.Id}" class="btn btn-light">
+                    Visa
+                </a>
+            </div>
+            <div class="col">
+                <img src="@product.ImageUrl"
+                     class="d-block w-100"
+                     alt="@product.Name">
+            </div>
+        </div>
+    </div>*@
+
+
